@@ -49,7 +49,6 @@ import math
 
 def greet(name: str) -> str:
     """返回 ``"你好，<name>！"``。
-
     greet("小明") -> "你好，小明！"
     """
     raise NotImplementedError("TODO: 用 f-string 拼字符串")
