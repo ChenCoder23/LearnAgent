@@ -49,12 +49,7 @@ from __future__ import annotations
 
 def max_of_three(a: float, b: float, c: float) -> float:
     """返回三个数里最大的那个（不许用内置 max）。"""
-    larger = a
-    if b > larger:
-        larger = b
-    if c > larger:
-        larger = c
-    return larger
+
 
 
 
@@ -70,37 +65,20 @@ def grade(score: int) -> str:
     - 其他 -> ``"E"``
     - 小于 0 或大于 100 抛 ``ValueError``
     """
-    if score < 0 or score > 100:
-        raise ValueError("分数必须在 0-100 之间")
-    if score >= 90:
-        return "A"
-    if score >= 80:
-        return "B"
-    if score >= 70:
-        return "C"
-    if score >= 60:
-        return "D"
-    return "E"
+
 
 def sum_to(n: int) -> int:
     """用 for + range 计算 1 + 2 + ... + n；n 小于 1 时返回 0。
 
     注意 range 的结尾是**开区间**：``range(1, n + 1)`` 才会包含 n。
     """
-    total = 0
-    for number in  range(1,n):
-        total = total + number
-    return total
+
 
 
 
 def count_vowels(text: str) -> int:
     """统计字符串里元音字母（a e i o u，忽略大小写）的个数。"""
-    count = 0
-    for char in text.lower():
-        if char in "aeiou":
-            count+=1
-    return count
+
 
 
 def fizzbuzz(n: int) -> list[str]:
@@ -113,21 +91,7 @@ def fizzbuzz(n: int) -> list[str]:
 
     判断顺序很重要：先判 15 的倍数，再判 3 和 5。
     """
-    #创建返回结果集
-    def fizzbuzz(n: int) -> list[str]:
-        result = []
 
-        for i in range(1, n + 1):
-            if i % 15 == 0:
-                result.append("FizzBuzz")
-            elif i % 3 == 0:
-                result.append("Fizz")
-            elif i % 5 == 0:
-                result.append("Buzz")
-            else:
-                result.append(str(i))
-
-        return result
 
 
 
@@ -136,48 +100,20 @@ def fizzbuzz(n: int) -> list[str]:
 
 def find_first_even(numbers: list[int]) -> int:
     """返回第一个偶数的**下标**；没有偶数返回 -1。用到 break。"""
-    index = -1
-    for number in numbers:
-        count = 0
-        if number % 2 == 0:
-            index = count
-            break
-        else:
-            count += 1
-    return index
+
 
 
 def multiplication_row(n: int) -> list[str]:
     """返回 n 的乘法口诀列表，格式 ``"1x3=3"``；n 小于 1 时返回空列表。"""
-    result = []
-    if n < 1:
-        return result
-    for i in range(1, n ):
-        result.append(f"{i}x{n}={i * n}")
-    return result
 
 
 
 def is_prime(n: int) -> bool:
-    if n < 2:
-        return False
-    divisor = 2
-    while divisor * divisor <= n:
-        if n % divisor == 0:
-            return False
-        divisor += 1
-    return True
+    return None
 
 def countdown_while(n: int) -> list[int]:
     """用 while 循环返回 ``[n, n-1, ..., 1]``；n 小于 1 时返回空列表。"""
-    if n < 1:
-        return []
-    #构建返回结果集
-    result = []
-    while n >= 1:
-        result.append(n)
-        n -= 1
-    return result
+    return []
 
 
 
@@ -187,12 +123,7 @@ def sum_until_over(limit: int) -> tuple[int, int]:
 
     sum_until_over(10) -> (15, 5)   因为 1+2+3+4=10 没超过，加 5 得 15 才超过
     """
-    sum = 0
-    number = 1
-    while sum >= limit:
-        sum += number
-        number += 1
-    return sum, number-1
+
 
 
 

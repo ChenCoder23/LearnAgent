@@ -42,8 +42,7 @@
 
 from __future__ import annotations
 
-from typing import List ,Any
-from unittest import result
+
 
 
 def count_chars(text: str) -> dict[str, int]:
@@ -54,9 +53,6 @@ def count_chars(text: str) -> dict[str, int]:
     提示：用 ``result[ch] = result.get(ch, 0) + 1``。
     """
 
-    result: dict[str, int] = {}
-    for ch in text:
-        result[ch] = result.get(ch, 0) + 1
 
 
 
@@ -65,18 +61,14 @@ def word_count(sentence: str) -> dict[str, int]:
 
     word_count("a b a") -> {"a": 2, "b": 1}
     """
-    word_list: List[str]= sentence.split(" ")
-    result: dict[str, int] = {}
-    for word in word_list:
-        result[word] = result.get(word, 0) + 1
-    return  result
+
 
 
 
 def reverse_words(sentence: str) -> str:
     """把单词顺序反过来：``reverse_words("hello world") -> "world hello"``。"""
 
-    return " ".join(reversed(sentence.split()))
+
 
 
 
@@ -87,16 +79,12 @@ def capitalize_words(sentence: str) -> str:
 
     提示：字符串有 ``.capitalize()`` 或 ``.title()`` 方法，想想区别。
     """
-    return " ".join(word.capitalize() for word in sentence.split())
+
 
 
 def filter_even(numbers: list[int]) -> list[int]:
     """返回只包含偶数的**新列表**（用 for + append 写，别用列表推导式，那是第 01 章的内容）。"""
-    result: list[int] = []
-    for number in numbers:
-        if number % 2 == 0:
-            result.append(number)
-    return result
+
 
 
 
@@ -106,12 +94,6 @@ def list_stats(numbers: list[float]) -> dict[str, float]:
     提示：内置函数 ``min`` / ``max`` / ``sum`` / ``len`` 可以直接用。
     """
 
-    return {
-        "min": min(numbers),
-        "max": max(numbers),
-        "sum": sum(numbers),
-        "count": len(numbers),
-    }
 
 
 
@@ -121,15 +103,12 @@ def pairs_to_dict(pairs: list[tuple[str, int]]) -> dict[str, int]:
     提示：``for key, value in pairs:``。
     """
 
-    result: dict[str, int] = {}
-    for tup in pairs:
-        result[tup[0]] = tup[1]
-    return result
+
 
 
 def get_or_default(data: dict[str, int], key: str, default: int) -> int:
     """取字典里的值，键不存在就返回 default（不要用会报错的 ``data[key]`` 写法）。"""
-    return data.get(key, default)
+
 
 
 def remove_duplicates(items: list[int]) -> list[int]:
@@ -137,14 +116,7 @@ def remove_duplicates(items: list[int]) -> list[int]:
 
     提示：先建一个空列表，遍历时用 ``if item not in result:`` 判断。
     """
-    result: list[Any] = []
-    map: set[Any] = set()
-    for c in items:
-        # 如果map里没有c元素，说明第一次出现
-        if c not in map:
-            result.append(c)
-            map.add(c)
-    return result
+
 
 
 def join_names(names: list[str], sep: str = ", ") -> str:
@@ -160,13 +132,6 @@ def find_max_key(data: dict[str, int]) -> str | None:
     find_max_key({"a": 1, "b": 3}) -> "b"
     """
 
-    best_key: str | None = None
-    best_value: int | None = None
-    for key, value in data.items():
-        if best_value is None or value > best_value:
-            best_key = key
-            best_value = value
-    return best_key
 
 
 
