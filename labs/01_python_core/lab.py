@@ -34,7 +34,16 @@ def dedupe(seq: Iterable[Any]) -> list[Any]:
     >>> dedupe([3, 1, 3, 2, 1])
     [3, 1, 2]
     """
-    raise NotImplementedError("TODO: 用 set 记录见过的元素，同时 append 到结果 list")
+    result: list[Any] = []
+    map: set[Any] = set()
+    for c in seq:
+        #如果map里没有c元素，说明第一次出现
+        if c not in map:
+            result.append(c)
+            map.add(c)
+    return  result
+
+
 
 
 def parse_version(text: str) -> dict[str, Any]:
@@ -51,7 +60,37 @@ def parse_version(text: str) -> dict[str, Any]:
     - ``-pre`` 与 ``+build`` 都是可选的，顺序固定：先 ``-`` 后 ``+``。
     - 任何不合法输入抛 ``ValueError``，消息里带上原始输入。
     """
-    raise NotImplementedError("TODO: 先切 '+'，再切 '-'，然后 split('.') 校验三段")
+    raw = text
+    if not isinstance(text, str) or not text:
+        raise ValueError(f"非法版本号: {raw!r}")
+
+    pre: str | None = None
+    build: str | None = None
+    body = text
+    if "+" in body:
+        body, _, build = body.partition("+")
+        if not build:
+            raise ValueError(f"非法版本号: {raw!r}")
+    if "-" in body:
+        body, _, pre = body.partition("-")
+        if not pre:
+            raise ValueError(f"非法版本号: {raw!r}")
+
+    parts = body.split(".")
+    if len(parts) != 3:
+        raise ValueError(f"非法版本号: {raw!r}")
+    numbers: list[int] = []
+    for part in parts:
+        if not part.isdigit():
+            raise ValueError(f"非法版本号: {raw!r}")
+        numbers.append(int(part))
+    return {
+        "major": numbers[0],
+        "minor": numbers[1],
+        "patch": numbers[2],
+        "pre": pre,
+        "build": build,
+    }
 
 
 def group_by(items: Iterable[Any], key: str | Callable[[Any], Any]) -> dict[Any, list[Any]]:

@@ -113,30 +113,73 @@ def fizzbuzz(n: int) -> list[str]:
 
     判断顺序很重要：先判 15 的倍数，再判 3 和 5。
     """
-    raise NotImplementedError("TODO")
+    #创建返回结果集
+    def fizzbuzz(n: int) -> list[str]:
+        result = []
+
+        for i in range(1, n + 1):
+            if i % 15 == 0:
+                result.append("FizzBuzz")
+            elif i % 3 == 0:
+                result.append("Fizz")
+            elif i % 5 == 0:
+                result.append("Buzz")
+            else:
+                result.append(str(i))
+
+        return result
+
+
+
+
 
 
 def find_first_even(numbers: list[int]) -> int:
     """返回第一个偶数的**下标**；没有偶数返回 -1。用到 break。"""
-    raise NotImplementedError("TODO")
+    index = -1
+    for number in numbers:
+        count = 0
+        if number % 2 == 0:
+            index = count
+            break
+        else:
+            count += 1
+    return index
 
 
 def multiplication_row(n: int) -> list[str]:
     """返回 n 的乘法口诀列表，格式 ``"1x3=3"``；n 小于 1 时返回空列表。"""
-    raise NotImplementedError("TODO")
+    result = []
+    if n < 1:
+        return result
+    for i in range(1, n ):
+        result.append(f"{i}x{n}={i * n}")
+    return result
+
 
 
 def is_prime(n: int) -> bool:
-    """判断质数：小于 2 不是质数；只要找到一个能整除它的数就不是质数。
-
-    提示：试到 ``n ** 0.5`` 就够（想一想为什么），找到就 break/return。
-    """
-    raise NotImplementedError("TODO")
-
+    if n < 2:
+        return False
+    divisor = 2
+    while divisor * divisor <= n:
+        if n % divisor == 0:
+            return False
+        divisor += 1
+    return True
 
 def countdown_while(n: int) -> list[int]:
     """用 while 循环返回 ``[n, n-1, ..., 1]``；n 小于 1 时返回空列表。"""
-    raise NotImplementedError("TODO")
+    if n < 1:
+        return []
+    #构建返回结果集
+    result = []
+    while n >= 1:
+        result.append(n)
+        n -= 1
+    return result
+
+
 
 
 def sum_until_over(limit: int) -> tuple[int, int]:
@@ -144,7 +187,13 @@ def sum_until_over(limit: int) -> tuple[int, int]:
 
     sum_until_over(10) -> (15, 5)   因为 1+2+3+4=10 没超过，加 5 得 15 才超过
     """
-    raise NotImplementedError("TODO")
+    sum = 0
+    number = 1
+    while sum >= limit:
+        sum += number
+        number += 1
+    return sum, number-1
+
 
 
 def main() -> None:

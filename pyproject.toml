@@ -3,7 +3,9 @@ name = "learn-agent"
 version = "0.1.0"
 description = "三阶段 Python + LangChain + Agent 手写框架教学项目（练习驱动）"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "any>=0.0.2",
+]
 
 [project.optional-dependencies]
 # 阶段一后端部分需要的库
