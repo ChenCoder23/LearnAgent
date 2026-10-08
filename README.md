@@ -36,6 +36,7 @@ uv run python -m learnkit.progress
 ```
 labs/00a_hello_python/lab.py        <- 零基础从这里开始（00a/00b/00c 三章）
 labs/01_python_core/lab.py          <- 你要写代码的地方（每章一个这样的目录）
+labs/01_python_core/README.md       <- 本节讲义：Python 语法、运行机制与设计思路
 labs/01_python_core/solutions.py    <- 参考实现（卡住 30 分钟再看）
 tests/test_01_python_core.py        <- 测试就是验收标准
 learnkit/loader.py                  <- 决定测试跑你的代码还是参考答案
@@ -47,7 +48,33 @@ projects/README.md                  <- 三个综合大作业
 
 ## 学习循环
 
-1. 读讲义 `docs/01-..`、`docs/02-..` 里对应章节，**先看懂要解决什么问题**；
+每个学习小节现在都有一份 `README.md`。咱们先聊 Python 的语法和设计思路，
+再看这些知识在本节实验里怎么用；讲义不按题目挨个拆解答案。
+
+| 小节 | 主题讲义 |
+| --- | --- |
+| 00a | [变量、类型、运算与字符串](labs/00a_hello_python/README.md) |
+| 00b | [判断、循环与控制流程](labs/00b_control_flow/README.md) |
+| 00c | [字符串、列表与字典](labs/00c_data_basics/README.md) |
+| 01 | [容器、可变性与数据转换](labs/01_python_core/README.md) |
+| 02 | [闭包、装饰器与函数组合](labs/02_functions/README.md) |
+| 03 | [值对象、继承、描述符与多态](labs/03_oop/README.md) |
+| 04 | [迭代器、生成器、上下文与异常](labs/04_iter_gen_exc/README.md) |
+| 05 | [类型协议、分页、文件与日志](labs/05_typing_log/README.md) |
+| 06 | [线程、队列与 asyncio](labs/06_concurrency_async/README.md) |
+| 07 | [对象身份、垃圾回收与运行原理](labs/07_internals/README.md) |
+| 08 | [FastAPI、SQLAlchemy 与分层后端](labs/08_fastapi_sql/README.md) |
+| 09 | [TTL、缓存策略、锁与幂等](labs/09_cache_redis/README.md) |
+| 10 | [消息、提示词、流式与解析](labs/10_llm_prompt_parser/README.md) |
+| 11 | [Runnable、LCEL 与组合链](labs/11_lcel_runnable/README.md) |
+| 12 | [文档切分、向量检索与 RAG](labs/12_rag/README.md) |
+| 13 | [工具调用 Agent 与 ReAct](labs/13_agent_tools/README.md) |
+| 14 | [手写 Runnable、Prompt、Parser 与模型](labs/14_mini_core/README.md) |
+| 15 | [手写切分、Embedding、向量库与 RAG](labs/15_mini_rag/README.md) |
+| 16 | [手写工具、Agent 循环与 ReAct](labs/16_mini_agent/README.md) |
+| 17 | [手写状态图、路由与检查点](labs/17_mini_graph/README.md) |
+
+1. 先读当前小节的 `labs/xx/README.md`，把语法和原理弄明白；阶段背景可以再看 `docs/` 里的对应讲义；
 2. 打开 `labs/xx/lab.py`，按 docstring 实现，**函数名与签名不要改**；
 3. 跑 `uv run pytest tests/test_xx.py`，看失败信息——测试就是需求文档；
 4. 卡住超过 30 分钟，看 `solutions.py`，然后**合上答案重写一遍**；

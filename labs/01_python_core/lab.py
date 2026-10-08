@@ -99,7 +99,7 @@ def group_by(items: Iterable[Any], key: str | Callable[[Any], Any]) -> dict[Any,
     >>> group_by([{"t": "a", "v": 1}, {"t": "b", "v": 2}, {"t": "a", "v": 3}], "t")
     {'a': [{'t': 'a', 'v': 1}, {'t': 'a', 'v': 3}], 'b': [{'t': 'b', 'v': 2}]}
     """
-    raise NotImplementedError("TODO: 用 dict.setdefault 或 defaultdict，注意 key 为 str 时要取字段")
+
 
 
 def flatten(nested: Iterable[Any], *, skip_none: bool = True) -> list[Any]:
