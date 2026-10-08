@@ -49,12 +49,20 @@ from __future__ import annotations
 
 def max_of_three(a: float, b: float, c: float) -> float:
     """返回三个数里最大的那个（不许用内置 max）。"""
-    raise NotImplementedError("TODO: 先用一个变量存最大值，再逐个比较")
+    larger = a
+    if b > larger:
+        larger = b
+    if c > larger:
+        larger = c
+    return larger
+
+
+
+
 
 
 def grade(score: int) -> str:
     """百分制转等级：
-
     - 90 及以上 -> ``"A"``
     - 80 及以上 -> ``"B"``
     - 70 及以上 -> ``"C"``
@@ -62,20 +70,37 @@ def grade(score: int) -> str:
     - 其他 -> ``"E"``
     - 小于 0 或大于 100 抛 ``ValueError``
     """
-    raise NotImplementedError("TODO")
-
+    if score < 0 or score > 100:
+        raise ValueError("分数必须在 0-100 之间")
+    if score >= 90:
+        return "A"
+    if score >= 80:
+        return "B"
+    if score >= 70:
+        return "C"
+    if score >= 60:
+        return "D"
+    return "E"
 
 def sum_to(n: int) -> int:
     """用 for + range 计算 1 + 2 + ... + n；n 小于 1 时返回 0。
 
     注意 range 的结尾是**开区间**：``range(1, n + 1)`` 才会包含 n。
     """
-    raise NotImplementedError("TODO")
+    total = 0
+    for number in  range(1,n):
+        total = total + number
+    return total
+
 
 
 def count_vowels(text: str) -> int:
     """统计字符串里元音字母（a e i o u，忽略大小写）的个数。"""
-    raise NotImplementedError("TODO: 先把 text 变成小写再逐个字符判断")
+    count = 0
+    for char in text.lower():
+        if char in "aeiou":
+            count+=1
+    return count
 
 
 def fizzbuzz(n: int) -> list[str]:

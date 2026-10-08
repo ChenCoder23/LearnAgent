@@ -46,17 +46,18 @@ from __future__ import annotations
 
 import math
 
+from sqlalchemy.util.cython import returns
+
 
 def greet(name: str) -> str:
     """返回 ``"你好，<name>！"``。
     greet("小明") -> "你好，小明！"
     """
-    raise NotImplementedError("TODO: 用 f-string 拼字符串")
-
+    return f"你好{name}"
 
 def add(a: float, b: float) -> float:
     """返回 a + b。注意：整数相加结果还是整数，小数的结果类型不用你操心。"""
-    raise NotImplementedError("TODO")
+    return a+b
 
 
 def circle_area(radius: float) -> float:
@@ -64,12 +65,14 @@ def circle_area(radius: float) -> float:
 
     提示：π 用 ``math.pi``，平方写成 ``radius ** 2``。
     """
-    raise NotImplementedError("TODO")
+    pi= math.pi
+    return radius**2*pi
+
 
 
 def celsius_to_fahrenheit(celsius: float) -> float:
     """摄氏温度转华氏温度，公式：摄氏度 × 9 / 5 + 32。"""
-    raise NotImplementedError("TODO")
+    return celsius *  9 / 5 + 32
 
 
 def describe(value: object) -> str:
@@ -77,7 +80,7 @@ def describe(value: object) -> str:
 
     提示：``type(value).__name__``。
     """
-    raise NotImplementedError("TODO")
+    return  type(value).__name__
 
 
 def total_price(price: float, count: int, discount: float = 0.0) -> float:
@@ -86,7 +89,12 @@ def total_price(price: float, count: int, discount: float = 0.0) -> float:
     ``discount`` 用小数表示折扣：0.1 表示打九折（减价 10%），0 表示不打折。
     这是**默认参数**的第一次见面：调用时不写就用 0。
     """
-    raise NotImplementedError("TODO")
+
+
+    return price * count * (1 - discount)
+
+
+
 
 
 def format_receipt(name: str, price: float, count: int) -> str:
@@ -94,7 +102,8 @@ def format_receipt(name: str, price: float, count: int) -> str:
 
     format_receipt("苹果", 3.5, 2) -> "苹果 x2 = 7.00 元"
     """
-    raise NotImplementedError("TODO: f\"{...} x{...} = {price * count:.2f} 元\"")
+
+    return f"{name} x{price} = {price * count:.2f} 元"
 
 
 def to_int(text: str) -> int:
@@ -103,12 +112,12 @@ def to_int(text: str) -> int:
     to_int("12") -> 12
     to_int("abc") -> 抛 ValueError
     """
-    raise NotImplementedError("TODO")
+    return int(text)
 
 
 def is_adult(age: int) -> bool:
     """满 18 岁返回 True，否则 False。"""
-    raise NotImplementedError("TODO")
+    return age >= 18
 
 
 def swap(a: object, b: object) -> tuple[object, object]:
@@ -116,7 +125,7 @@ def swap(a: object, b: object) -> tuple[object, object]:
 
     提示：Python 里可以直接写 ``b, a``（元组解包），不需要中间变量。
     """
-    raise NotImplementedError("TODO")
+    return b, a
 
 
 def average(numbers: list[float]) -> float:
@@ -124,7 +133,9 @@ def average(numbers: list[float]) -> float:
 
     提示：``len(numbers)`` 是元素个数。
     """
-    raise NotImplementedError("TODO")
+    if not numbers:
+        raise ValueError("列表不能为空")
+    return sum(numbers) / len(numbers)
 
 
 def main() -> None:
