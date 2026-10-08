@@ -102,6 +102,8 @@ def group_by(items: Iterable[Any], key: str | Callable[[Any], Any]) -> dict[Any,
 
 
 
+
+
 def flatten(nested: Iterable[Any], *, skip_none: bool = True) -> list[Any]:
     """把任意深度的 list/tuple 展平成一维 list。
 
@@ -111,13 +113,13 @@ def flatten(nested: Iterable[Any], *, skip_none: bool = True) -> list[Any]:
     >>> flatten([1, [2, (3, None)], "ab"])
     [1, 2, 3, 'ab']
     """
-    raise NotImplementedError("TODO: 递归；注意 isinstance(True, int) 这类陷阱与 str 的处理")
+
 
 
 def chunk(seq: Sequence[Any], size: int) -> list[list[Any]]:
     """把序列切成固定大小的块，最后一块可以更短。
 
-    ``size <= 0`` 抛 ``ValueError``。空序列返回 ``[]``。
+    ``size < 0`` 抛 ``ValueError``。空序列返回 ``[]``。
 
     >>> chunk([1, 2, 3, 4, 5], 2)
     [[1, 2], [3, 4], [5]]
